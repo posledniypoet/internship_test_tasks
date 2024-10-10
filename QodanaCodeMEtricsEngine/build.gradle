@@ -1,0 +1,40 @@
+// Copyright 2000-2021 JetBrains s.r.o. Use of this source code is governed by the Apache 2.0 license that can be found in the LICENSE file.
+apply plugin: 'java'
+apply plugin: 'kotlin'
+
+compileJava {
+  sourceCompatibility '17'
+  targetCompatibility '17'
+}
+
+sourceSets {
+  main.java.srcDirs 'src'
+  test.java.srcDirs 'test'
+}
+
+repositories { mavenCentral() }
+dependencies {
+  implementation 'org.jetbrains:annotations:20.1.0'
+  testImplementation 'junit:junit:4.12'
+  testImplementation 'org.assertj:assertj-core:3.23.1'
+  implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+}
+
+jar {
+  archiveFileName = 'qodana.jar'
+  manifest {
+    attributes 'Main-Class': 'qodana.code.metrics.engine.main.Main'
+  }
+}
+buildscript {
+  ext.kotlin_version = '1.9.22'
+  repositories {
+    mavenCentral()
+  }
+  dependencies {
+    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+  }
+}
+kotlin {
+  jvmToolchain(17)
+}

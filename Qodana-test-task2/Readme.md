@@ -1,0 +1,2 @@
+I used Jackson library for implementing jsons, most useful and popular library, I added my models for Problem and ProblemList, overrided @equals for problems and after that simply used objectMapper.
+I initialized union of problems as third output and removed these problems from first and second output.

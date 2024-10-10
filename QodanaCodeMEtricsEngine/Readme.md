@@ -1,0 +1,1 @@
+At first you have to go to the directory that you want to be analyzed and have to compile all classes there(javac *.java)
